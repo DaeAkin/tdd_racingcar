@@ -5,7 +5,7 @@ import lombok.ToString;
 @ToString
 public class Car {
     private String name;
-    private String move = "";
+    private int move;
 
     public Car(String name) {
         if(name.length() > 5)
@@ -13,21 +13,17 @@ public class Car {
         this.name = name;
     }
 
-    public void move(int randomCount) {
-        if(randomCount > 9)
-            throw new IllegalArgumentException("count는 9를 초과할 수 없습니다.");
-        if(randomCount >= 4)
-            move += "-";
-
-        System.out.println(toString());
+    public void move(MoveStrategy moveStrategy) {
+        if(moveStrategy.isMoveAble())
+            move++;
     }
 
 
-    public String getMove() {
+    public int getMove() {
         return move;
     }
 
-    public String getName() {
+    public String  getName() {
         return name;
     }
 }

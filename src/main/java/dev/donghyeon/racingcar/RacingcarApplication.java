@@ -1,6 +1,6 @@
 package dev.donghyeon.racingcar;
 
-import dev.donghyeon.racingcar.controller.CarController;
+import dev.donghyeon.racingcar.domain.RacingGame;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -14,7 +14,7 @@ public class RacingcarApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        CarController carController = new CarController();
-        carController.doRace();
+        RacingGame racingGame = new RacingGame();
+        racingGame.doRace();
     }
 }
