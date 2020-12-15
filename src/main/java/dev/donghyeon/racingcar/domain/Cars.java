@@ -2,18 +2,28 @@ package dev.donghyeon.racingcar.domain;
 
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class Cars {
 
-    private Cars() {
+    private final List<Car> cars;
+
+    private Cars(List<Car> cars) {
+        this.cars = cars;
     }
 
-    public static List<Car> from(List<String> carNames) {
+    public Stream<Car> stream() {
+        return cars.stream();
+    }
+
+    public static Cars from(List<String> carNames) {
         return prepareCar(carNames);
     }
 
-    private static List<Car> prepareCar(List<String> carNames) {
-        return carNames.stream().map(Car::new)
+    private static Cars prepareCar(List<String> carNames) {
+        List<Car> cars = carNames.stream().map(Car::new)
                 .collect(Collectors.toList());
+
+        return new Cars(cars);
     }
 }

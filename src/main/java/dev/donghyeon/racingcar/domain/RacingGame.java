@@ -12,7 +12,7 @@ public class RacingGame {
         final List<String> carNames = Input.carInput();
         final int count = Input.tryInput();
 
-        final List<Car> cars = Cars.from(carNames);
+        final Cars cars = Cars.from(carNames);
         MoveStrategy carStrategy = new CarMoveStrategy();
 
         CarStadium carStadium = new CarStadium(cars, count, carStrategy);

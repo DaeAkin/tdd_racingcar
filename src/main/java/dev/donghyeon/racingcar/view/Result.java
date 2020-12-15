@@ -16,8 +16,9 @@ public class Result {
     private Result() {
     }
 
-    public static void printState(List<Car> cars) {
-        cars.forEach(car -> System.out.println(
+    public static void printState(Cars cars) {
+        cars.stream()
+                .forEach(car -> System.out.println(
                         car.getName() + COLON + printHyphen(car.getMove())));
         System.out.println();
     }

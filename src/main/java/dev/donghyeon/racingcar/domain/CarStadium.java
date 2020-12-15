@@ -8,11 +8,11 @@ import java.util.stream.Collectors;
 
 public class CarStadium {
 
-    private final List<Car> cars;
+    private final Cars cars;
     private final int count;
     private final MoveStrategy moveStrategy;
-
-    public CarStadium(List<Car> cars, int count, MoveStrategy moveStrategy) {
+    
+    public CarStadium(Cars cars, int count, MoveStrategy moveStrategy) {
         this.cars = cars;
         this.count = count;
         this.moveStrategy = moveStrategy;
@@ -20,7 +20,7 @@ public class CarStadium {
 
     public void letsRace() {
         for (int i = 0; i < count; i++) {
-            cars.forEach(car -> car.move(moveStrategy));
+            cars.stream().forEach(car -> car.move(moveStrategy));
             Result.printState(cars);
         }
     }
